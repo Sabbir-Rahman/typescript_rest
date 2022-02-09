@@ -6,7 +6,7 @@ export const hashPass = async (password:string):Promise<string> => {
   try {
     const salt = await bcrypt.genSalt(config.setWorkFactor)
     const hashPass = await bcrypt.hash(password,salt)
-
+  
     return hashPass
   } catch (error) {
 
