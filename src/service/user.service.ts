@@ -5,6 +5,7 @@ import { UserDoc, User } from "../models/user/user.interface";
 import { hashPass } from "../utils/bcrypt";
 import { stringify } from "querystring";
 import { omit } from "lodash";
+import { FilterQuery } from 'mongoose';
 
 export async function createUser(input: User) {
   try {
@@ -36,4 +37,8 @@ export async function validatePassword( email:string, password:string) {
     return false
   return omit(user.toJSON(),'password')
   
+}
+
+export async function findUser(query: FilterQuery<UserDoc>){
+  return UserModel.findOne(query).lean()
 }

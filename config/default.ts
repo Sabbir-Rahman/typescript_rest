@@ -3,7 +3,7 @@ export default {
   dbUri: "mongodb://localhost:27017/typescript_rest",
   setWorkFactor: 10,
   accessTokenTtl: "15m",
-  refreshTokenTtl: "1m",
+  refreshTokenTtl: "1y",
   publicKey: `-----BEGIN PUBLIC KEY-----
 MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgG6yYfO4NCm3dpSow8Wrm8aT8Ye4
 7m+qDKNbQy0szRt6Oy5d4OJAy5lXPbgsnzXde2aDV+TG73R9aY4w/YMGsI2H6Fu1
