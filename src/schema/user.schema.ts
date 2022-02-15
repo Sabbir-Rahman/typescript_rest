@@ -20,4 +20,4 @@ export const createUserSchema = object({
   })
 })
 
-export type CreateUSerInput = TypeOf<typeof createUserSchema>
+export type CreateUserInput = TypeOf<typeof createUserSchema>

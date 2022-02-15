@@ -1,7 +1,10 @@
-import UserModel from "../models/user.model";
-import { UserDoc, User } from "../models/user.interface";
+const bcrypt = require('bcrypt')
+
+import UserModel from "../models/user/user"
+import { UserDoc, User } from "../models/user/user.interface";
 import { hashPass } from "../utils/bcrypt";
 import { stringify } from "querystring";
+import { omit } from "lodash";
 
 export async function createUser(input: User) {
   try {
@@ -17,5 +20,20 @@ export async function createUser(input: User) {
   }catch(error: any){
     throw new Error(error)
   }
+  
+}
+
+export async function validatePassword( email:string, password:string) {
+  const user = await UserModel.findOne({ email })
+
+  if(!user) {
+    return false
+  }
+
+  const isValid = await bcrypt.compare(password,user.password)
+
+  if(!isValid)
+    return false
+  return omit(user.toJSON(),'password')
   
 }

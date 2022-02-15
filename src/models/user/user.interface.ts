@@ -1,4 +1,4 @@
-import { CorrectedDocument } from "./types";
+import { CorrectedDocument } from "../types";
 
 export interface User {
   email: string,
