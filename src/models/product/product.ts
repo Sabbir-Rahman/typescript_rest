@@ -7,7 +7,7 @@ import { ProductDoc, Product } from './product.interface';
 
 const productSchema = new Schema<ProductDoc>(
   {
-    productId: { type: String, unique: true, default: `prod_${nanoid}` },
+    productId: { type: String, unique: true },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     title: { type: String },
     description: { type: String },

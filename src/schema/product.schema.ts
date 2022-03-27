@@ -18,6 +18,15 @@ const payload = {
   })
 }
 
+const payloadUpdate = {
+  body: object({
+    title: string().optional(),
+    description: string().optional(),
+    price: number().optional(),
+    image: string().optional()
+  })
+}
+
 const params = {
   params: object({
     productId: string({
@@ -35,7 +44,7 @@ export const getProductSchema = object({
 })
 
 export const updateProductSchema = object({
-  ...payload,
+  ...payloadUpdate,
   ...params
 })
 
